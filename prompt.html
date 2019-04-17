@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/html5reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <title>Journaling Prompts</title>
+  </head>
+  <body>
+
+  <div id="skip"><a href="#main">Skip to Main Content</a></div>
+
+  <header>
+    <nav>
+      <ul>
+      <li> <a href="index.html">About Me</a></li>
+        <li><a href="materials.html">Journaling Materials</a></li>
+        <li><a href="prompt.html" class="current">Prompts</a></li>
+        <li><a href="example.html">Examples</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+  // sticky nav bar!
+  window.onscroll = function() {navBarFunc()};
+  var navbar = document.querySelector("nav");
+  var sticky = navbar.offsetTop;
+
+  function navBarFunc() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+  </script>
+
+  <main id="main">
+
+    <h1>Journaling Prompts</h1>
+
+    <button onclick="typeWriter()">Don't know where to start?</button>
+
+    <p id="typewriter"></p>
+
+    <p>- What do you want to get out of this journal?
+      Sometimes people have very specific goals, like writing todo lists or tracking calories, and sometimes people have broader goals, such as becoming a better writer by the end of the journal or developing a more complete sense of self. Regardless of which of these you gravitate towards, it helps to think about how keeping a journal might contribute to your life.</p>
+
+    <p>- How often are you going to journal?
+      In high school, I tried to write every single day. That's become a lot harder to do in college. At times, I'd go weeks without writing a word in my journal, which would snowball into a sort of indifference about journaling at all. My logic was that by failing my own goals so badly, there was no point in even trying to continue. Why not just start again the next year?
+      Since then, I try to set "soft" journaling goals rather than firm ones. I think of it more as an outlet than a requirement, which means I write whenever I can and don't get mad at myself if I can't.</p>
+
+    <p>— What's your risk level?
+      About ten years ago or so, I came home to find my sister reading my journal in a corner. The level of outrage and violation I felt is still fresh in my memory.
+      If you're going to be recording a lot of sensitive information in your journal, it might help to either anonymize names or even use some sort of code so that only you can understand what you're writing about. Or, if there's a chance of someone finding your journal (like my nosy sister), it might help to just not write about sensitive information at all.
+      Regardless, thinking about whether or not you care about others reading what you say is something to consider going into it.</p>
+
+    <button class="accordion">Click me for some specific prompts to consider</button>
+      <div class="panel">
+        <ul>
+          <li>What's something good that happened today?</li>
+          <li>Who are the most important people in your life and why?</li>
+          <li>How have you changed in the past day, week, month, or year?</li>
+          <li>Any plot twists you've had in your life?</li>
+          <li>What makes us human?</li>
+          <li>What's the nicest thing anyone has ever done for you?</li>
+          <li>What's your favorite pasttime? Why do you like it and what do you think it says about your character?</li>
+          <li>What do you love about life?</li>
+          <li>What can you learn from your biggest mistakes?</li>
+          <li>Make a list of everything you’d like to say yes to.</li>
+          <li>Make a list of everything you’d like to say no to.</li>
+          <li>What scares you?</li>
+          <li>What are some skills you'd like to learn?</li>
+          <li>Tell about what triggers anger in you or someone else. </li>
+          <li>What do you consider your greatest accomplishment to date and why? </li>
+          <li>Write one characteristic or habit about yourself that you like and describe it.</li>
+          <li>Write about a difficult decision you had to make. </li>
+          <li> Write about the worst fight you ever had.</li>
+          <li>What is your definition of success? </li>
+          <li>What did you think about today?</li>
+          <li>What's bugging you or stressing you out? What are the biggest stress factors in your life right now?</li>
+          <li>How do you celebrate good news and how do you relax and have fun?</li>
+          <li>What's stopping you?</li>
+          <li>What things are you most grateful for from last week?</li>
+          <li>What's something that you want to create next week?</li>
+          <li>What did you get done today?</li>
+        </ul>
+      </div>
+
+      <p>Sometimes, all you really need is the right frame of mind to get started. I've found that setting is really important for me when I want to journal productively — if the room I'm in is too loud or distracting, my journaling session isn't as insightful as it could be. I sometimes find that playing ambient noise in the background (like the video below) helps me relax regardless of my surroundings.</p>
+
+      <div class="outer">
+          <video controls>
+            <source src="images/waterfall.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+      </div>
+  </main>
+
+  <script>
+    // prompt accordion thing
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+      for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+      }
+  </script>
+
+  <script>
+  // typewriter  effect thing
+  var i = 0;
+  var txt = 'Some things to think about when trying to get started with a new journal!'; /* The text */
+  var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+  function typeWriter() {
+    if (i < txt.length) {
+      document.getElementById("typewriter").innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+  </script>
+
+<footer>
+  Made with care by Sam Lu
+<i class="far fa-grin-squint"></i>
+</footer>
+</body>
+</html>
