@@ -101,13 +101,38 @@
 
       <p>Sometimes, all you really need is the right frame of mind to get started. I've found that setting is really important for me when I want to journal productively — if the room I'm in is too loud or distracting, my journaling session isn't as insightful as it could be. I sometimes find that playing ambient noise in the background (like the video below) helps me relax regardless of my surroundings.</p>
 
+
       <div class="outer">
+        <button onclick="enableLoop()" type="button">Loop video for ambience</button>
+        <button onclick="disableLoop()" type="button">Disable loop</button>
+        <button onclick="checkLoop()" type="button">Check loop status</button><br>
           <video id="myVideo" controls>
             <source src="images/waterfall.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
       </div>
   </main>
+
+  <script>
+    // autoplay video js
+    var v = document.getElementById("myVideo");
+    v.autoplay = true;
+    v.load();
+
+    function enableLoop() {
+    v.loop = true;
+    v.load();
+    }
+
+    function disableLoop() {
+      v.loop = false;
+      v.load();
+      }
+
+    function checkLoop() {
+    alert("looping is set to: " + v.loop);
+    }
+  </script>
 
   <script>
     // prompt accordion thing
@@ -139,13 +164,6 @@
       setTimeout(typeWriter, speed);
     }
   }
-  </script>
-
-  <script>
-    // autoplay video js
-    var v = document.getElementById("myVideo");
-    v.autoplay = true;
-    v.load();
   </script>
 
 <footer>
