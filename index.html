@@ -42,6 +42,20 @@
         console.log("Hi there!")
       </script> -->
 
+      <script>
+      window.onscroll = function() {navBarFunc()};
+      var navbar = document.getElementsByTagName("nav");
+      var sticky = navbar.offsetTop;
+
+      function myFunction() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      }
+      </script>
+
       <main  id="main">
 
         <h1>A Little About Me</h1>
